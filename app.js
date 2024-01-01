@@ -2,13 +2,13 @@ const express = require("express");
 const morgan = require("morgan");
 const mongoose = require("mongoose");
 const blogRoutes = require("./routes/blogRoutes");
+const connUrl = require("./connection.js");
 
 // express app
 const app = express();
 
 // connect to mongodb & listen for requests
-const dbURI =
-  "mongodb+srv://newadmin:newadmin@simple-blog.91ggtge.mongodb.net/simple-blog?retryWrites=true&w=majority";
+const dbURI = connUrl;
 mongoose
   .connect(dbURI)
   .then((result) => app.listen(3000))
